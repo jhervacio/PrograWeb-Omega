@@ -16,7 +16,7 @@ import pe.edu.upc.service.IAlimentacionService;
 @RequestScoped
 public class AlimentacionController implements Serializable {
 private static final long serialVersionUID = 1L;
-	
+//	
 	@Inject
 	private IAlimentacionService aService;
 	private Alimentacion alimentacion;
