@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Clientes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Cliente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idCliente" value="Id " styleClass="control-label" />
+
+		12	<p:inputText autocomplete="off" id="idCliente"
+				styleClass="form-control" value="#{clienteController.cliente.idCliente}"
+				required="true" />
+				
+			<h:outputLabel for="nombreCliente" value="Nombre del Cliente "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.nombreCliente}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="apellidoCliente" value="Apellido del cliente"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidoCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.apellidoCliente}" maxlength="30"
+				required="true" />
+
+
+	        <h:outputLabel for="edadCliente" value="Edad del cliente"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="edadCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.edadCliente}" maxlength="30"
+				required="true" />
+				
+			
+			 <h:outputLabel for="pesoCliente" value="Peso del cliente"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="pesoCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.pesoCliente}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="estaturaCliente" value="Estatura del cliente"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="estaturaCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.estaturaCliente}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="fechaInscripcion" value="Fecha de inscripcion "
+				styleClass="control-label" />
+			<p:calendar id="fechaInscripcion" pattern="dd/MM/yyyy"
+				value="#{clienteController.cliente.fechaInscripcion}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+				
+				<h:outputLabel for="planCliente" value="Plan del cliente"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="planCliente"
+				styleClass="form-control"
+				value="#{clienteController.cliente.planCliente}" maxlength="30"
+				required="true" />
+			
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{clienteController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listCliente?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listCliente?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

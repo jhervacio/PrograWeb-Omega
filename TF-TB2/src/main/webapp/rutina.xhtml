@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Rutinas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Rutinas por cliente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idRutina" value="Id " styleClass="control-label" />
+
+		12	<p:inputText autocomplete="off" id="idRutina"
+				styleClass="form-control" value="#{rutinaController.rutina.idRutina}"
+				required="true" />
+				
+			<h:outputLabel for="nombreRutina" value="Nombre de la Rutina "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreRutina"
+				styleClass="form-control"
+				value="#{rutinaController.rutina.nombreRutina}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="descripcionRutina" value="Descripcion de la Rutina "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="descripcionRutina"
+				styleClass="form-control"
+				value="#{rutinaController.rutina.descripcionRutina}" maxlength="50"
+				required="true" />
+
+
+	        <h:outputLabel for="frecuenciaRutina" value="Frecuencia de la Rutina "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="frecuenciaRutina"
+				styleClass="form-control"
+				value="#{rutinaController.rutina.frecuenciaRutina}" maxlength="30"
+				required="true" />
+				
+				
+				<h:outputLabel for="duracionRutina" value="Duracion de la Rutina "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="duracionRutina"
+				styleClass="form-control"
+				value="#{rutinaController.rutina.duracionRutina}" maxlength="30"
+				required="true" />
+			
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{rutinaController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listRutina?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listRutina?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
