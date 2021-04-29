@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Estados de salud de los Clientes:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Estados de salud</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{estadoSaludController.nuevoEstadoSalud()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstEstadoSalud" var="est"
+							value="#{estadoSaludController.listaEstadoSaluds}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{est.idEstadoSalud}">
+								<h:outputText value="#{est.idEstadoSalud}" />
+							</p:column>
+
+							<p:column headerText="Peso" sortBy="#{est.peso}">
+								<h:outputText value="#{est.peso}" />
+							</p:column>
+							
+							<p:column headerText="Estatura" sortBy="#{est.estatura}">
+								<h:outputText value="#{est.estatura}" />
+							</p:column>
+
+						
+							<p:column headerText="IMC" sortBy="#{est.IMC}">
+								<h:outputText value="#{est.IMC}" />
+							</p:column>
+							
+							<p:column headerText="Fecha " sortBy="#{est.fechasalud}">
+								<h:outputText value="#{est.fechasalud}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listEstadoSalud" value="Eliminar"
+									actionListener="#{estadoSaludController.eliminar(est)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

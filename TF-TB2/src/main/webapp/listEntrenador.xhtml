@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Entrenadores:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Entrenadores</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{entrenadorController.nuevoEntrenador()}" 
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstEntrenador" var="entr"
+							value="#{entrenadorController.listaEntrenadores}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{entr.idEntrenador}">
+								<h:outputText value="#{entr.idEntrenador}" />
+							</p:column>
+
+							<p:column headerText="Nombre de Entrenador" sortBy="#{entr.nombreEntrenador}">
+								<h:outputText value="#{entr.nombreEntrenador}" />
+							</p:column>
+							
+							<p:column headerText="Apellido del entrenador" sortBy="#{entr.apellidoEntrenador}">
+								<h:outputText value="#{entr.apellidoEntrenador}" />
+							</p:column>
+							
+							
+							<p:column headerText="documento del entrenador" sortBy="#{entr.documentoEntrenador}">
+								<h:outputText value="#{entr.documentoEntrenador}" />
+							</p:column>	
+							
+												
+							<p:column headerText="direccion del entrenador" sortBy="#{entr.direccionEntrenador}">
+								<h:outputText value="#{entr.direccionEntrenador}" />
+							</p:column>						
+												
+							<p:column headerText="telefono del entrenador" sortBy="#{entr.telefonoEntrenador}">
+								<h:outputText value="#{entr.telefonoEntrenador}" />
+							</p:column>	
+							
+							<p:column headerText="correo del entrenador" sortBy="#{entr.correoEntrenador}">
+								<h:outputText value="#{entr.correoEntrenador}" />
+							</p:column>		
+							
+							<p:column headerText="Estudios del entrenador" sortBy="#{entr.estudiosEntrenador}">
+								<h:outputText value="#{entr.estudiosEntrenador}" />
+							</p:column>	
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listEntrenador" value="Eliminar"
+									actionListener="#{entrenadorController.eliminar(entr)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

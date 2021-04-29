@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Registro de Actividades:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Actividades</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idEntrenador" value="Id " styleClass="control-label" />
+
+		12	<p:inputText autocomplete="off" id="idEntrenador"
+				styleClass="form-control" value="#{entrenadorController.entrenador.idEntrenador}"
+				required="true" />
+				
+			<h:outputLabel for="nombreEntrenador" value="Nombre del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.nombreEntrenador}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="apellidoEntrenador" value="Apellido del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidoEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.apellidoEntrenador}" maxlength="50"
+				required="true" />
+			
+			<h:outputLabel for="documentoEntrenador" value="Documento del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="documentoEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.documentoEntrenador}" maxlength="50"
+				required="true" />			
+			
+			<h:outputLabel for="direccionEntrenador" value="Direccion del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="direccionEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.direccionEntrenador}" maxlength="50"
+				required="true" />	
+
+			<h:outputLabel for="telefonoEntrenador" value="telefono del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="telefonoEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.telefonoEntrenador}" maxlength="50"
+				required="true" />	
+	
+			<h:outputLabel for="correoEntrenador" value="Correo del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="correoEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.correoEntrenador}" maxlength="50"
+				required="true" />
+			
+			<h:outputLabel for="estudiosEntrenador" value="Estudios del entrenador "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="estudiosEntrenador"
+				styleClass="form-control"
+				value="#{entrenadorController.entrenador.estudiosEntrenador}" maxlength="50"
+				required="true" />
+				
+			<p:commandButton value="Grabar"
+				actionListener="#{entrenadorController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listEntrenador?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listEntrenador?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

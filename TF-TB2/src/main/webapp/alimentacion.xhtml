@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Planes alimentaciones:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Planes de alimentacion</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAlimentacion" value="Id " styleClass="control-label" />
+
+		12	<p:inputText autocomplete="off" id="idAlimentacion"
+				styleClass="form-control" value="#{alimentacionController.alimentacion.idAlimentacion}"
+				required="true" />
+				
+			<h:outputLabel for="nombreAlimentacion" value="Nombre de plan Alimentacio "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreAlimentacion"
+				styleClass="form-control"
+				value="#{alimentacionController.alimentacion.nombreAlimentacion}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="descripcionAlimentacion" value="Descripcion de plan Alimentacio "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="descripcionAlimentacion"
+				styleClass="form-control"
+				value="#{alimentacionController.alimentacion.descripcionAlimentacion}" maxlength="50"
+				required="true" />
+				
+		    <h:outputLabel for="duracionAlimentacion" value="Duracion de plan Alimentacio "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="duracionAlimentacion"
+				styleClass="form-control"
+				value="#{alimentacionController.alimentacion.duracionAlimentacion}" maxlength="30"
+				required="true" />
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{alimentacionController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listAlimentacion?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listAlimentacion?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

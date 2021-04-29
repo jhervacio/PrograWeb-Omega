@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Registro de Estados de salud:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Estados de salud</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idEstadoSalud" value="Id " styleClass="control-label" />
+
+		12	<p:inputText autocomplete="off" id="idEstadoSalud"
+				styleClass="form-control" value="#{estadoSaludController.estadoSalud.idEstadoSalud}"
+				required="true" />
+				
+			<h:outputLabel for="peso" value="Peso  "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="peso"
+				styleClass="form-control"
+				value="#{estadoSaludController.estadoSalud.peso}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="estatura" value="estatura "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="estatura"
+				styleClass="form-control"
+				value="#{estadoSaludController.estadoSalud.estatura}" maxlength="50"
+				required="true" />
+			
+			<h:outputLabel for="IMC" value="IMC "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="IMC"
+				styleClass="form-control"
+				value="#{estadoSaludController.estadoSalud.IMC}" maxlength="50"
+				required="true" />		
+					
+			<p:calendar id="fechasalud" pattern="dd/MM/yyyy"
+				value="#{estadoSaludController.estadoSalud.fechasalud}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{estadoSaludController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listEstadoSalud?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listEstadoSalud?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
