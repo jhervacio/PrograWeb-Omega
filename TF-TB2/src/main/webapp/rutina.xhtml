@@ -53,6 +53,12 @@
 				value="#{rutinaController.rutina.duracionRutina}" maxlength="30"
 				required="true" />
 			
+			<p:outputLabel for="cboCliente" value="Cliente" />
+			<p:selectOneMenu id="cboCliente" value="#{rutinaController.rutina.cliente}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{rutinaController.listaClientes}" var = "c" 
+					itemLabel="#{c.nombreCliente}" itemValue="#{c}"/>
+			</p:selectOneMenu> 			
 			
 			<p:commandButton value="Grabar"
 				actionListener="#{rutinaController.insertar()}"

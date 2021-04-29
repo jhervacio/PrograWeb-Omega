@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,19 +29,34 @@ public class Rutina implements Serializable {
 	private String frecuenciaRutina;
 	@Column(name = "duracionRutina", nullable = false, length=30)
 	private String duracionRutina;
+	
+
+	@ManyToOne
+	@JoinColumn(name="idCliente")
+	private Cliente cliente;
+	
 	public Rutina() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Rutina(int idRutina, String nombreRutina, String descripcionRutina, String frecuenciaRutina,
-			String duracionRutina) {
+			String duracionRutina, Cliente cliente) {
 		super();
 		this.idRutina = idRutina;
 		this.nombreRutina = nombreRutina;
 		this.descripcionRutina = descripcionRutina;
 		this.frecuenciaRutina = frecuenciaRutina;
 		this.duracionRutina = duracionRutina;
+		this.cliente = cliente;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public int getIdRutina() {

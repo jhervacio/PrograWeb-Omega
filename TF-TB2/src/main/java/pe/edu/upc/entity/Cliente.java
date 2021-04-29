@@ -97,6 +97,68 @@ public class Cliente implements Serializable {
 	public void setPlanCliente(String planCliente) {
 		this.planCliente = planCliente;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((apellidoCliente == null) ? 0 : apellidoCliente.hashCode());
+		result = prime * result + ((edadCliente == null) ? 0 : edadCliente.hashCode());
+		result = prime * result + ((estaturaCliente == null) ? 0 : estaturaCliente.hashCode());
+		result = prime * result + ((fechaInscripcion == null) ? 0 : fechaInscripcion.hashCode());
+		result = prime * result + idCliente;
+		result = prime * result + ((nombreCliente == null) ? 0 : nombreCliente.hashCode());
+		result = prime * result + ((pesoCliente == null) ? 0 : pesoCliente.hashCode());
+		result = prime * result + ((planCliente == null) ? 0 : planCliente.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (apellidoCliente == null) {
+			if (other.apellidoCliente != null)
+				return false;
+		} else if (!apellidoCliente.equals(other.apellidoCliente))
+			return false;
+		if (edadCliente == null) {
+			if (other.edadCliente != null)
+				return false;
+		} else if (!edadCliente.equals(other.edadCliente))
+			return false;
+		if (estaturaCliente == null) {
+			if (other.estaturaCliente != null)
+				return false;
+		} else if (!estaturaCliente.equals(other.estaturaCliente))
+			return false;
+		if (fechaInscripcion == null) {
+			if (other.fechaInscripcion != null)
+				return false;
+		} else if (!fechaInscripcion.equals(other.fechaInscripcion))
+			return false;
+		if (idCliente != other.idCliente)
+			return false;
+		if (nombreCliente == null) {
+			if (other.nombreCliente != null)
+				return false;
+		} else if (!nombreCliente.equals(other.nombreCliente))
+			return false;
+		if (pesoCliente == null) {
+			if (other.pesoCliente != null)
+				return false;
+		} else if (!pesoCliente.equals(other.pesoCliente))
+			return false;
+		if (planCliente == null) {
+			if (other.planCliente != null)
+				return false;
+		} else if (!planCliente.equals(other.planCliente))
+			return false;
+		return true;
+	}
 	
 	
 	

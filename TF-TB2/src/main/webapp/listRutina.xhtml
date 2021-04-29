@@ -61,6 +61,10 @@
 								<h:outputText value="#{rut.duracionRutina}" />
 							</p:column>
 							
+							<p:column headerText="Cliente">
+								<h:outputText value="#{rut.cliente.nombreCliente}"/>
+							</p:column>
+							
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listRutina" value="Eliminar"
 									actionListener="#{rutinaController.eliminar(rut)}" />
