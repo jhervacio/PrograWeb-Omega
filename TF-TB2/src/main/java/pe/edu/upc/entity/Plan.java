@@ -74,6 +74,50 @@ public class Plan implements Serializable {
 	public void setTplan(TPlan tplan) {
 		this.tplan = tplan;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((descripcionPlan == null) ? 0 : descripcionPlan.hashCode());
+		result = prime * result + idPlan;
+		result = prime * result + ((nombrePlan == null) ? 0 : nombrePlan.hashCode());
+		result = prime * result + ((precioPlan == null) ? 0 : precioPlan.hashCode());
+		result = prime * result + ((tplan == null) ? 0 : tplan.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Plan other = (Plan) obj;
+		if (descripcionPlan == null) {
+			if (other.descripcionPlan != null)
+				return false;
+		} else if (!descripcionPlan.equals(other.descripcionPlan))
+			return false;
+		if (idPlan != other.idPlan)
+			return false;
+		if (nombrePlan == null) {
+			if (other.nombrePlan != null)
+				return false;
+		} else if (!nombrePlan.equals(other.nombrePlan))
+			return false;
+		if (precioPlan == null) {
+			if (other.precioPlan != null)
+				return false;
+		} else if (!precioPlan.equals(other.precioPlan))
+			return false;
+		if (tplan == null) {
+			if (other.tplan != null)
+				return false;
+		} else if (!tplan.equals(other.tplan))
+			return false;
+		return true;
+	}
 	
 	
 	
