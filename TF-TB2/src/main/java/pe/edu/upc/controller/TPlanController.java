@@ -35,12 +35,23 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public void insertar() {
-		mService.insertar(tplan);
-		limpiarTPlan();
+		try {
+			mService.insertar(tplan);
+			limpiarTPlan();
+			this.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	public void listar() {
-		listaTPlanes = mService.listar();
+		try {
+			listaTPlanes = mService.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	public void limpiarTPlan() {
@@ -48,8 +59,13 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public void eliminar(TPlan tplan) {
-		mService.eliminar(tplan.getIdTPlan());
-		this.listar();
+		try {
+			mService.eliminar(tplan.getIdTPlan());
+			this.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	public TPlan getTPlan() {

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,16 +27,22 @@ public class Plan implements Serializable {
 	private String precioPlan;
 	@Column(name = "descripcionPlan", nullable = false, length=50)
 	private String descripcionPlan;
+	
+	@ManyToOne
+	@JoinColumn(name="idTPlan")
+	private TPlan tplan;
+	
 	public Plan() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Plan(int idPlan, String nombrePlan, String precioPlan, String descripcionPlan) {
+	public Plan(int idPlan, String nombrePlan, String precioPlan, String descripcionPlan,TPlan tplan) {
 		super();
 		this.idPlan = idPlan;
 		this.nombrePlan = nombrePlan;
 		this.precioPlan = precioPlan;
 		this.descripcionPlan = descripcionPlan;
+		this.tplan=tplan;
 	}
 	public int getIdPlan() {
 		return idPlan;
@@ -60,6 +68,13 @@ public class Plan implements Serializable {
 	public void setDescripcionPlan(String descripcionPlan) {
 		this.descripcionPlan = descripcionPlan;
 	}
+	public TPlan getTplan() {
+		return tplan;
+	}
+	public void setTplan(TPlan tplan) {
+		this.tplan = tplan;
+	}
+	
 	
 	
 }

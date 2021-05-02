@@ -56,9 +56,13 @@
 							<p:column headerText="Descripcion del Plan" sortBy="#{pla.descripcionPlan}">
 								<h:outputText value="#{pla.descripcionPlan}" />
 							</p:column>
+					
 							
-			
+							<p:column headerText="Tipo Plan">
+								<h:outputText value="#{pla.tplan.tipoPlan}"/>
+							</p:column>
 							
+				
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listPlan" value="Eliminar"
 									actionListener="#{planController.eliminar(pla)}" />

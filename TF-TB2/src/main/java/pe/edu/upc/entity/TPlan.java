@@ -22,6 +22,7 @@ public class TPlan implements Serializable {
 	@Column(name="tipoPlan", nullable = false, length=30)
 	private String tipoPlan;
 	
+	
 	public TPlan() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -48,5 +49,34 @@ public class TPlan implements Serializable {
 	public void setTipoPlan(String tipoPlan) {
 		this.tipoPlan = tipoPlan;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idTPlan;
+		result = prime * result + ((tipoPlan == null) ? 0 : tipoPlan.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TPlan other = (TPlan) obj;
+		if (idTPlan != other.idTPlan)
+			return false;
+		if (tipoPlan == null) {
+			if (other.tipoPlan != null)
+				return false;
+		} else if (!tipoPlan.equals(other.tipoPlan))
+			return false;
+		return true;
+	}
+	
 	
 }
