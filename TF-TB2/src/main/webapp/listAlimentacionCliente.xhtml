@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Alimentacion por clientes:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Relacion de alimentos por clientes </span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Nuevo"						
+							action="#{alimentacionClienteController.nuevoAlimentacionCliente()}" 
+							styleClass="btn btn-primary ajax=false" /><br/>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstlAimentacionCliente" var="acli"
+							value="#{alimentacionClienteController.listaAlimentacionClientes}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{acli.idAlimentacionCliente}">
+								<h:outputText value="#{acli.idAlimentacionCliente}" />
+							</p:column>
+
+							<p:column headerText="Cliente" sortBy="#{acli.cliente.apellidoCliente}">
+								<h:outputText value="#{acli.cliente.apellidoCliente}" />
+							</p:column>
+							
+							<p:column headerText="PLan de Alimentacion" sortBy="#{acli.alimentacion.nombreAlimentacion}">
+								<h:outputText value="#{acli.alimentacion.nombreAlimentacion}" />
+							</p:column>
+							
+							<p:column headerText="Duracion de alimentacion" sortBy="#{acli.duracionporcliente}">
+								<h:outputText value="#{acli.duracionporcliente}" />
+							</p:column>		
+							
+
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listAlimentacionCliente" value="Eliminar"
+									actionListener="#{alimentacionClienteController.eliminar(acli)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 
