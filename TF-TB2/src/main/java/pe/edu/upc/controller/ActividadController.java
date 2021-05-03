@@ -12,6 +12,9 @@ import javax.inject.Named;
 import pe.edu.upc.entity.Actividad;
 import pe.edu.upc.service.IActividadService;
 
+import pe.edu.upc.entity.Sala;
+import pe.edu.upc.service.ISalaService;
+
 @Named
 @RequestScoped
 public class ActividadController implements Serializable {
@@ -19,14 +22,31 @@ private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private IActividadService aService;
+	
+	@Inject
+	private ISalaService sService;
+	
+	
+	
 	private Actividad actividad ;
 	List<Actividad> listaActividades;
+	private Sala sala ;
+	List<Sala> listaSalas;
+	
+	
+	
+	
 	
 	@PostConstruct
 	public void init() {
 		this.listaActividades = new ArrayList<Actividad>();
 		this.actividad = new Actividad();
+		this.listaSalas = new ArrayList<Sala>();
+		this.sala = new Sala();
 		this.listar();
+
+		this.listSala();
+		
 	}
 	
 	public String nuevoActividad() {
@@ -42,6 +62,11 @@ private static final long serialVersionUID = 1L;
 	public void listar() {
 		listaActividades = aService.listar();
 	}
+	
+	public void listSala() {
+		listaSalas = sService.listar();
+	}
+	
 	
 	public void limpiarActividad() {
 		this.init();
@@ -64,10 +89,27 @@ private static final long serialVersionUID = 1L;
 		return listaActividades;
 	}
 
-	public void setListaPlanes(List<Actividad> listaActividades) {
+	public void setListaActividades(List<Actividad> listaActividades) {
 		this.listaActividades = listaActividades;
 	}
 
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+	public List<Sala> getListaSalas() {
+		return listaSalas;
+	}
+
+	public void setListaSalas(List<Sala> listaSalas) {
+		this.listaSalas = listaSalas;
+	}
+
+	
 	
 
 }

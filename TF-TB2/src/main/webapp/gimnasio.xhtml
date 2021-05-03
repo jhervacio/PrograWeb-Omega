@@ -30,6 +30,12 @@
 				value="#{gimnasioController.gimnasio.nombreGimnasio}" maxlength="30"
 				required="true" />
 			
+				<p:outputLabel for="cboDistrito" value="Distrito" />
+			<p:selectOneMenu id="cboDistrito" value="#{gimnasioController.gimnasio.distrito}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{gimnasioController.listaDistritos}" var = "d" 
+					itemLabel="#{d.nombreDistrito}" itemValue="#{d}"/>
+			</p:selectOneMenu> 						
 
 			<h:outputLabel for="direccionGimnasio" value="Direccion del Gimnasio "
 				styleClass="control-label" />

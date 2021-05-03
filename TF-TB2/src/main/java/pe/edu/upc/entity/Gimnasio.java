@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class Gimnasio implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idGimnasio;
+	
+	@ManyToOne
+	@JoinColumn(name="idDistrito", nullable=false)
+	private Distrito distrito;
 	
 	@Column(name="nombreGimnasio", nullable = false, length=30)
 	private String nombreGimnasio;
@@ -36,10 +42,11 @@ public class Gimnasio implements Serializable {
 		
 	}
 
-	public Gimnasio(int idGimnasio, String nombreGimnasio, String direccionGimnasio, String telefonoGimnasio,
-			String correoGimnasio) {
+	public Gimnasio(int idGimnasio, Distrito distrito, String nombreGimnasio, String direccionGimnasio,
+			String telefonoGimnasio, String correoGimnasio) {
 		super();
 		this.idGimnasio = idGimnasio;
+		this.distrito = distrito;
 		this.nombreGimnasio = nombreGimnasio;
 		this.direccionGimnasio = direccionGimnasio;
 		this.telefonoGimnasio = telefonoGimnasio;
@@ -52,6 +59,14 @@ public class Gimnasio implements Serializable {
 
 	public void setIdGimnasio(int idGimnasio) {
 		this.idGimnasio = idGimnasio;
+	}
+
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
 	}
 
 	public String getNombreGimnasio() {
@@ -85,6 +100,8 @@ public class Gimnasio implements Serializable {
 	public void setCorreoGimnasio(String correoGimnasio) {
 		this.correoGimnasio = correoGimnasio;
 	}
+
+	
 
 
 	

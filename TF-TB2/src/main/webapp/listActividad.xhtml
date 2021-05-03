@@ -49,6 +49,11 @@
 								<h:outputText value="#{act.nombreActividad}" />
 							</p:column>
 							
+							<p:column headerText="Sala" sortBy="#{act.sala.nombreSala}">
+								<h:outputText value="#{act.sala.nombreSala}"/>
+								
+							</p:column>
+							
 							<p:column headerText="Descripcion de Actividad" sortBy="#{act.descripcionActividad}">
 								<h:outputText value="#{act.descripcionActividad}" />
 							</p:column>

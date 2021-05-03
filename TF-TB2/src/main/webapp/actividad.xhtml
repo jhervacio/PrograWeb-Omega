@@ -19,7 +19,7 @@
 		<h:form>
 			<h:outputLabel for="idActividad" value="Id " styleClass="control-label" />
 
-		12	<p:inputText autocomplete="off" id="idActividad"
+			<p:inputText autocomplete="off" id="idActividad"
 				styleClass="form-control" value="#{actividadController.actividad.idActividad}"
 				required="true" />
 				
@@ -29,7 +29,17 @@
 				styleClass="form-control"
 				value="#{actividadController.actividad.nombreActividad}" maxlength="30"
 				required="true" />
-				
+		
+			
+			<p:outputLabel for="cboSala" value="Sala" />
+			<p:selectOneMenu id="cboSala" value="#{actividadController.actividad.sala}" 
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{actividadController.listaSalas}" var = "d" 
+					itemLabel="#{d.nombreSala}" itemValue="#{d}"/>
+			</p:selectOneMenu>		
+					
+					
+					
 			<h:outputLabel for="descripcionActividad" value="Descripcion de la Actividad "
 				styleClass="control-label" />
 			<p:inputText autocomplete="off" id="descripcionActividad"
