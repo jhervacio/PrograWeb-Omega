@@ -35,12 +35,24 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public void insertar() {
-		mService.insertar(cliente);
-		limpiarCliente();
+		try {
+			mService.insertar(cliente);
+			limpiarCliente();
+			this.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	public void listar() {
-		listaClientes = mService.listar();
+		
+		try {
+			listaClientes = mService.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	public void limpiarCliente() {
@@ -48,8 +60,13 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public void eliminar(Cliente cliente) {
-		mService.eliminar(cliente.getIdCliente());
-		this.listar();
+		try {
+			mService.eliminar(cliente.getIdCliente());
+			this.listar();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	public Cliente getCliente() {

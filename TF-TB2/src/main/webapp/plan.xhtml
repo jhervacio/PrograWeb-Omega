@@ -43,6 +43,14 @@
 				styleClass="form-control"
 				value="#{planController.plan.descripcionPlan}" maxlength="50"
 				required="true" />
+				
+			<p:outputLabel for="cboTPlan" value="Tipo Plan" />
+			<p:selectOneMenu id="cboTPlan" value="#{planController.plan.tplan}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{planController.listaTPlanes}" var = "a" 
+					itemLabel="#{a.tipoPlan}" itemValue="#{a}"/>
+			</p:selectOneMenu> 	
+			<br />
 			
 			<p:commandButton value="Grabar"
 				actionListener="#{planController.insertar()}"

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Relacion de Cliente - Plan:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Cliente x Plan</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idClientePlan" value="Id " styleClass="control-label" />
+		12	<p:inputText autocomplete="off" id="idClientePlan"
+				styleClass="form-control" value="#{clientePlanController.clienteplan.idClientePlan}"
+				required="true" />
+				
+			<p:outputLabel for="cboCliente" value="Cliente" />
+			
+			<p:selectOneMenu id="cboCliente" value="#{clientePlanController.clienteplan.cliente}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{{clientePlanController.listaClientes}" var = "d" 
+					itemLabel="#{d.nombreCliente}" itemValue="#{d}"/>
+			</p:selectOneMenu> 		
+			
+			<p:outputLabel for="cboPlan" value="Plan" />
+			<p:selectOneMenu id="cboPlan" value="#{clientePlanController.clienteplan.plan}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{{clientePlanController.listaPlanes}" var = "p" 
+					itemLabel="#{p.nombrePlan}" itemValue="#{p}"/>
+			</p:selectOneMenu> 	
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{clientePlanController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listClientePlan?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listClientePlan?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
