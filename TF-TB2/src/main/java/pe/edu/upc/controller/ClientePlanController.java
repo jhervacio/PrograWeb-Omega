@@ -101,7 +101,7 @@ private static final long serialVersionUID = 1L;
 		this.init();
 	}
 	
-	public void eliminar(Cliente cliente) {
+	public void eliminar(ClientePlan clienteplan) {
 		try {
 			cpService.eliminar(clienteplan.getIdClientePlan());
 			this.listClientePlan();

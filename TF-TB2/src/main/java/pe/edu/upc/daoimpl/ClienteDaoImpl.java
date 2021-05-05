@@ -20,15 +20,26 @@ private static final long serialVersionUID = 1L;
 	@Transactional
 	@Override
 	public void insertar(Cliente cliente) {
-		em.persist(cliente);
+	
+		try {
+			em.persist(cliente);
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> listar() {
 		List<Cliente> lista = new ArrayList<Cliente>();
-		Query q =em.createQuery("select m from Cliente m");
-		lista = (List<Cliente>) q.getResultList();
+		try {
+			Query q =em.createQuery("select m from Cliente m");
+			lista = (List<Cliente>) q.getResultList();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 		return lista;
 	}
 	
@@ -36,8 +47,13 @@ private static final long serialVersionUID = 1L;
 	@Override
 	public void eliminar(int idCliente) {
 		Cliente cliente = new Cliente();
-		cliente = em.getReference(Cliente.class, idCliente);
-		em.remove(cliente);
+		try {
+			cliente = em.getReference(Cliente.class, idCliente);
+			em.remove(cliente);
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 		
 	}
 	
