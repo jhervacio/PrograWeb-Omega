@@ -12,6 +12,8 @@ import javax.inject.Named;
 import pe.edu.upc.entity.Gimnasio;
 import pe.edu.upc.service.IGimnasioService;
 
+import pe.edu.upc.entity.Distrito;
+import pe.edu.upc.service.IDistritoService;
 @Named
 @RequestScoped
 public class GimnasioController implements Serializable {
@@ -19,14 +21,24 @@ private static final long serialVersionUID = 1L;
 	
 	@Inject
 	private IGimnasioService gimService;
+	@Inject
+	private IDistritoService dService;
+	
+	private Distrito distrito;
+	
 	private Gimnasio gimnasio ;
+	
+	List<Distrito> listaDistritos;
 	List<Gimnasio> listaGimnasios;
 	
 	@PostConstruct
 	public void init() {
+		this.distrito=new Distrito();
+		this.listaDistritos= new ArrayList<Distrito>();
 		this.listaGimnasios = new ArrayList<Gimnasio>();
 		this.gimnasio = new Gimnasio();
 		this.listar();
+		this.listDistrito();
 	}
 	
 	public String nuevoGimnasio() {
@@ -43,6 +55,11 @@ private static final long serialVersionUID = 1L;
 		listaGimnasios = gimService.listar();
 	}
 	
+	public void listDistrito() {
+		listaDistritos = dService.listar();
+	}
+	
+	
 	public void limpiarGimnasio() {
 		this.init();
 	}
@@ -50,6 +67,14 @@ private static final long serialVersionUID = 1L;
 	public void eliminar(Gimnasio gimnasio) {
 		gimService.eliminar(gimnasio.getIdGimnasio());
 		this.listar();
+	}
+
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
 	}
 
 	public Gimnasio getGimnasio() {
@@ -60,6 +85,14 @@ private static final long serialVersionUID = 1L;
 		this.gimnasio = gimnasio;
 	}
 
+	public List<Distrito> getListaDistritos() {
+		return listaDistritos;
+	}
+
+	public void setListaDistritos(List<Distrito> listaDistritos) {
+		this.listaDistritos = listaDistritos;
+	}
+
 	public List<Gimnasio> getListaGimnasios() {
 		return listaGimnasios;
 	}
@@ -67,6 +100,8 @@ private static final long serialVersionUID = 1L;
 	public void setListaGimnasios(List<Gimnasio> listaGimnasios) {
 		this.listaGimnasios = listaGimnasios;
 	}
+
+	
 
 	
 

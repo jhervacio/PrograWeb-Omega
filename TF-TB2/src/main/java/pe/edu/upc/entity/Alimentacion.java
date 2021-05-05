@@ -61,5 +61,45 @@ public class Alimentacion implements Serializable {
 	public void setDuracionAlimentacion(String duracionAlimentacion) {
 		this.duracionAlimentacion = duracionAlimentacion;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((descripcionAlimentacion == null) ? 0 : descripcionAlimentacion.hashCode());
+		result = prime * result + ((duracionAlimentacion == null) ? 0 : duracionAlimentacion.hashCode());
+		result = prime * result + idAlimentacion;
+		result = prime * result + ((nombreAlimentacion == null) ? 0 : nombreAlimentacion.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alimentacion other = (Alimentacion) obj;
+		if (descripcionAlimentacion == null) {
+			if (other.descripcionAlimentacion != null)
+				return false;
+		} else if (!descripcionAlimentacion.equals(other.descripcionAlimentacion))
+			return false;
+		if (duracionAlimentacion == null) {
+			if (other.duracionAlimentacion != null)
+				return false;
+		} else if (!duracionAlimentacion.equals(other.duracionAlimentacion))
+			return false;
+		if (idAlimentacion != other.idAlimentacion)
+			return false;
+		if (nombreAlimentacion == null) {
+			if (other.nombreAlimentacion != null)
+				return false;
+		} else if (!nombreAlimentacion.equals(other.nombreAlimentacion))
+			return false;
+		return true;
+	}
+	
+	
 	
 }

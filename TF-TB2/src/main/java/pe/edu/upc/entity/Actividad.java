@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class Actividad implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idActividad;
+	
+	@ManyToOne
+	@JoinColumn(name="idSala", nullable=false)
+	private Sala sala;
 	
 	@Column(name="nombreActividad", nullable = false, length=30)
 	private String nombreActividad;
@@ -32,11 +38,11 @@ public class Actividad implements Serializable {
 	}
 
 
-	public Actividad(int idActividad, String nombreActividad, String precioActividad, String descripcionActividad) {
+	public Actividad(int idActividad, Sala sala, String nombreActividad, String descripcionActividad) {
 		super();
 		this.idActividad = idActividad;
+		this.sala = sala;
 		this.nombreActividad = nombreActividad;
-		
 		this.descripcionActividad = descripcionActividad;
 	}
 
@@ -51,6 +57,16 @@ public class Actividad implements Serializable {
 	}
 
 
+	public Sala getSala() {
+		return sala;
+	}
+
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+
 	public String getNombreActividad() {
 		return nombreActividad;
 	}
@@ -61,7 +77,6 @@ public class Actividad implements Serializable {
 	}
 
 
-
 	public String getDescripcionActividad() {
 		return descripcionActividad;
 	}
@@ -70,6 +85,10 @@ public class Actividad implements Serializable {
 	public void setDescripcionActividad(String descripcionActividad) {
 		this.descripcionActividad = descripcionActividad;
 	}
+
+
+
+	
 	
 	
 	

@@ -31,6 +31,40 @@ public class Sala implements Serializable {
 		
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((capacidadSala == null) ? 0 : capacidadSala.hashCode());
+		result = prime * result + idSala;
+		result = prime * result + ((nombreSala == null) ? 0 : nombreSala.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sala other = (Sala) obj;
+		if (capacidadSala == null) {
+			if (other.capacidadSala != null)
+				return false;
+		} else if (!capacidadSala.equals(other.capacidadSala))
+			return false;
+		if (idSala != other.idSala)
+			return false;
+		if (nombreSala == null) {
+			if (other.nombreSala != null)
+				return false;
+		} else if (!nombreSala.equals(other.nombreSala))
+			return false;
+		return true;
+	}
+
 	public Sala(int idSala, String nombreSala, String capacidadSala) {
 		super();
 		this.idSala = idSala;

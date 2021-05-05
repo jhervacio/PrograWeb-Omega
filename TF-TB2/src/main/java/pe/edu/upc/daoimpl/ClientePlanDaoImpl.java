@@ -46,10 +46,10 @@ private static final long serialVersionUID = 1L;
 	@Transactional
 	@Override
 	public void eliminar(int idClientePlan) {		
-		ClientePlan clienteplan = new ClientePlan();
+		ClientePlan cp = new ClientePlan();
 		try {
-			clienteplan = em.getReference(ClientePlan.class, idClientePlan);
-			em.remove(clienteplan);
+			cp = em.getReference(ClientePlan.class, idClientePlan);
+			em.remove(cp);
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());

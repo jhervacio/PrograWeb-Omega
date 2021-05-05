@@ -6,15 +6,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-//		
+		
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Planes Alimenticios:.
+		.:Listado de Alimentacion por clientes:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Planes de Alimentacion</span>
+		<span>Relacion de alimentos por clientes </span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,8 +25,8 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{alimentacionController.nuevoAlimentacion()}"
-							styleClass="btn btn-primary ajax=false" />
+							action="#{alimentacionClienteController.nuevoAlimentacionCliente()}" 
+							styleClass="btn btn-primary ajax=false" /><br/>
 					</div>
 				</div>
 			</div>
@@ -34,33 +34,34 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstAlimentacion" var="ali"
-							value="#{alimentacionController.listaAlimentaciones}" paginator="true"
+						<p:dataTable id="lstlAimentacionCliente" var="acli"
+							value="#{alimentacionClienteController.listaAlimentacionClientes}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{ali.idAlimentacion}">
-								<h:outputText value="#{ali.idAlimentacion}" />
+							<p:column headerText="Id" sortBy="#{acli.idAlimentacionCliente}">
+								<h:outputText value="#{acli.idAlimentacionCliente}" />
 							</p:column>
 
-							<p:column headerText="Nombre de plan alimenticion" sortBy="#{ali.nombreAlimentacion}">
-								<h:outputText value="#{ali.nombreAlimentacion}" />
-							</p:column>
-																
-							<p:column headerText="Descripcion de plan alimenticion" sortBy="#{ali.descripcionAlimentacion}">
-								<h:outputText value="#{ali.descripcionAlimentacion}" />
+							<p:column headerText="Cliente" sortBy="#{acli.cliente.apellidoCliente}">
+								<h:outputText value="#{acli.cliente.apellidoCliente}" />
 							</p:column>
 							
-							<p:column headerText="Duracion de plan alimenticion" sortBy="#{ali.duracionAlimentacion}">
-								<h:outputText value="#{ali.duracionAlimentacion}" />
+							<p:column headerText="PLan de Alimentacion" sortBy="#{acli.alimentacion.nombreAlimentacion}">
+								<h:outputText value="#{acli.alimentacion.nombreAlimentacion}" />
 							</p:column>
-			
+							
+							<p:column headerText="Duracion de alimentacion" sortBy="#{acli.duracionporcliente}">
+								<h:outputText value="#{acli.duracionporcliente}" />
+							</p:column>		
+							
+
 							
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listAlimentacion" value="Eliminar"
-									actionListener="#{alimentacionController.eliminar(ali)}" />
+								<h:commandLink action="listAlimentacionCliente" value="Eliminar"
+									actionListener="#{alimentacionClienteController.eliminar(acli)}" />
 							</p:column>
 
 						</p:dataTable>

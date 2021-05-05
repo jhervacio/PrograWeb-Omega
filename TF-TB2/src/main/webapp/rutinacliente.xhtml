@@ -1,0 +1,68 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Asginacion de rutinas por cliente:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>RutinasCliente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idRutinaCliente" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idRutinaCliente"
+				styleClass="form-control" value="#{rutinaClienteController.rutinacliente.idRutinaCliente}"
+				required="true" />
+				
+			<h:outputLabel for="duracionrutina" value="Duracion de Rutina "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="duracionrutina"
+				styleClass="form-control"
+				value="#{rutinaClienteController.rutinacliente.duracionRutina}" maxlength="30"
+				required="true" />
+	
+			<p:outputLabel for="cboCliente" value="Cliente" />
+			<p:selectOneMenu id="cboCliente" value="#{rutinaClienteController.rutinacliente.cliente}" 
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{rutinaClienteController.listaClientes}" var = "d" 
+					itemLabel="#{d.apellidoCliente}" itemValue="#{d}"/>
+			</p:selectOneMenu>				
+			
+			<p:outputLabel for="cboRutina" value="Rutina" />
+			<p:selectOneMenu id="cboRutina" value="#{rutinaClienteController.rutinacliente.rutina}" 
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{rutinaClienteController.listaRutinas}" var = "c" 
+					itemLabel="#{c.nombreRutina}" itemValue="#{c}"/>
+			</p:selectOneMenu>		
+			
+
+					
+
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{rutinaClienteController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listRutinaCliente?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listRutinaCliente?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
