@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Clientes:.
+		.:Listado de Actividad por clientes:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Relacion de clientes por plan </span>
+		<span>Relacion de actividad por clientes </span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,8 +25,8 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{clientePlanController.nuevoClientePlan()}"
-							styleClass="btn btn-primary ajax=false" />
+							action="#{actividadClienteController.nuevoActividadCliente()}" 
+							styleClass="btn btn-primary ajax=false" /><br/>
 					</div>
 				</div>
 			</div>
@@ -34,29 +34,29 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstCliente" var="cp"
-							value="#{clientePlanController.listaClientePlanes}" paginator="true"
+						<p:dataTable id="lstActividadCliente" var="aclie"
+							value="#{actividadClienteController.listaActividadClientes}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{cp.idClientePlan}">
-								<h:outputText value="#{cp.idClientePlan}" />
+							<p:column headerText="Id" sortBy="#{aclie.idActividadCliente}">
+								<h:outputText value="#{aclie.idActividadCliente}" />
+							</p:column>
+
+							<p:column headerText="Cliente" sortBy="#{aclie.cliente.apellidoCliente}">
+								<h:outputText value="#{aclie.cliente.apellidoCliente}" />
 							</p:column>
 							
-							<p:column headerText="Cliente">
-								<h:outputText value="#{cp.cliente.nombreCliente}"/>
+							<p:column headerText="Actividad elegida" sortBy="#{aclie.actividad.nombreActividad}">
+								<h:outputText value="#{aclie.actividad.nombreActividad}" />
 							</p:column>
 							
-							<p:column headerText="Plan">
-								<h:outputText value="#{cp.plan.nombrePlan}"/>
-							</p:column>				
-						
-					
+		
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listClientePlan" value="Eliminar"
-									actionListener="#{clientePlanController.eliminar(cp)}" />
+								<h:commandLink action="listActividadCliente" value="Eliminar"
+									actionListener="#{actividadClienteController.eliminar(aclie)}" />
 							</p:column>
 
 						</p:dataTable>

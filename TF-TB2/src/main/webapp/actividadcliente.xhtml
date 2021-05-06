@@ -1,0 +1,61 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Asginacion de alimentos por cliente:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>AlimentacionCliente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idActividadCliente" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idActividadCliente"
+				styleClass="form-control" value="#{actividadClienteController.actividadcliente.idActividadCliente}"
+				required="true" />
+					
+			<p:outputLabel for="cboCliente" value="Cliente" />
+			<p:selectOneMenu id="cboCliente" value="#{actividadClienteController.actividadcliente.cliente}" 
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{actividadClienteController.listaClientes}" var = "d" 
+					itemLabel="#{d.apellidoCliente}" itemValue="#{d}"/>
+			</p:selectOneMenu>				
+			
+			<p:outputLabel for="cboActividad" value="Actividad" />
+			<p:selectOneMenu id="cboActividad" value="#{actividadClienteController.actividadcliente.actividad}" 
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{actividadClienteController.listaActividades}" var = "c" 
+					itemLabel="#{c.nombreActividad}" itemValue="#{d}"/>
+			</p:selectOneMenu>		
+			
+
+					
+
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{actividadClienteController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listActividadCliente?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listActividadCliente?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

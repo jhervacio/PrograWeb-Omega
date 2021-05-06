@@ -17,10 +17,8 @@
 	<link rel="shortcut icon" type="image/x-icon"
 		href="resources/img/favicon.ico" />
 		
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-        // chau
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>  
 
-	<h:outputStylesheet name="css/font_ico.css" />
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
 
@@ -39,28 +37,26 @@
           Creaciones
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="listCliente.xhtml">Action</a>
-          <a class="dropdown-item" href="listPlan.xhtml">Another action</a>
-           <a class="dropdown-item" href="listSala.xhtml">Another action</a>
-            <a class="dropdown-item" href="listActividad.xhtml">Another action</a>
-             <a class="dropdown-item" href="listEntrenador.xhtml">Another action</a>
-              <a class="dropdown-item" href="listEstadoSalud.xhtml">Another action</a>
-               <a class="dropdown-item" href="listAdministrador.xhtml">Another action</a>
-                <a class="dropdown-item" href="listGimnasio.xhtml">Another action</a>
-                 <a class="dropdown-item" href="listDistrito.xhtml">Another action</a>
-                     <a class="dropdown-item" href="listPlan.xhtml">Another action</a>
-                         <a class="dropdown-item" href="listTPlan.xhtml">Another action</a>
-                             <a class="dropdown-item" href="listAlimentacion.xhtml">Another action</a>
-                                 <a class="dropdown-item" href="listRutina.xhtml">Another action</a></div>
+          <a class="dropdown-item" href="listCliente.xhtml">Clientes</a>
+          <a class="dropdown-item" href="listPlan.xhtml">Planes</a>
+           <a class="dropdown-item" href="listSala.xhtml">Salas</a>
+            <a class="dropdown-item" href="listActividad.xhtml">Actividades</a>
+             <a class="dropdown-item" href="listEntrenador.xhtml">Entrenador</a>
+              <a class="dropdown-item" href="listEstadoSalud.xhtml">Estado-Salud</a>
+               <a class="dropdown-item" href="listAdministrador.xhtml">Administrador</a>
+                <a class="dropdown-item" href="listGimnasio.xhtml">Gimnasio</a>
+                 <a class="dropdown-item" href="listDistrito.xhtml">Distrito</a>                 
+                             <a class="dropdown-item" href="listAlimentacion.xhtml">Alimentacion</a>
+                                 <a class="dropdown-item" href="listRutina.xhtml">Rutina</a></div>
       </li>
    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Asignaciones
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="listClientePlan.xhtml">Action</a>
-          <a class="dropdown-item" href="listAlimentacionCliente.xhtml">Another action</a>
-           <a class="dropdown-item" href="listRutinaCliente.xhtml">Another action</a>
+          <a class="dropdown-item" href="listClientePlan.xhtml">Cliente-Plan</a>
+          <a class="dropdown-item" href="listAlimentacionCliente.xhtml">Alimentacion-Cliente</a>
+           <a class="dropdown-item" href="listRutinaCliente.xhtml">Rutina-Cliente</a>
             </div>
       </li>
       <li class="nav-item">
@@ -72,7 +68,8 @@
 	<!--main-->
 	<div class="container base_fondo_fff"
 		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
-		
+	
+		<div class="row">
 			<!--/left-->
 
 			<!--right-->
@@ -86,8 +83,7 @@
 			</div>
 			<!--/right-->
 		</div>
-		<!--/row-->
-
+</div>
 	<!--/container-->
 	<ui:insert name="footerCont"></ui:insert>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
