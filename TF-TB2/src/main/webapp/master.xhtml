@@ -16,80 +16,63 @@
 		rel='stylesheet' type='text/css' />
 	<link rel="shortcut icon" type="image/x-icon"
 		href="resources/img/favicon.ico" />
+		
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
-	<h:outputStylesheet name="css/bootstrap.min.css" />
-	<h:outputStylesheet name="css/main_base.css" />
+
 	<h:outputStylesheet name="css/font_ico.css" />
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
-<h:body>
-	<nav class="navbar navbar-default navbar-fixed-top base_primary"
-		role="banner">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand"
-					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
-					src="resources/img/logo.png" alt="" height="50" /></a>
-			</div>
 
-		</div>
-	</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><img src="resources/img/logo.png" width="50" height="50" alt=""></img></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="panel.xhtml">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Creaciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="listCliente.xhtml">Action</a>
+          <a class="dropdown-item" href="listPlan.xhtml">Another action</a>
+           <a class="dropdown-item" href="listSala.xhtml">Another action</a>
+            <a class="dropdown-item" href="listActividad.xhtml">Another action</a>
+             <a class="dropdown-item" href="listEntrenador.xhtml">Another action</a>
+              <a class="dropdown-item" href="listEstadoSalud.xhtml">Another action</a>
+               <a class="dropdown-item" href="listAdministrador.xhtml">Another action</a>
+                <a class="dropdown-item" href="listGimnasio.xhtml">Another action</a>
+                 <a class="dropdown-item" href="listDistrito.xhtml">Another action</a>
+                     <a class="dropdown-item" href="listPlan.xhtml">Another action</a>
+                         <a class="dropdown-item" href="listTPlan.xhtml">Another action</a>
+                             <a class="dropdown-item" href="listAlimentacion.xhtml">Another action</a>
+                                 <a class="dropdown-item" href="listRutina.xhtml">Another action</a></div>
+      </li>
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Asignaciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="listClientePlan.xhtml">Action</a>
+          <a class="dropdown-item" href="listAlimentacionCliente.xhtml">Another action</a>
+           <a class="dropdown-item" href="listRutinaCliente.xhtml">Another action</a>
+            </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 	<!--main-->
 	<div class="container base_fondo_fff"
 		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
-		<div class="row">
-			<!--left-->
-			<div class="col-md-3" id="leftCol">
-				<ul class="nav nav-stacked" id="sidebar">
-					<li id="sidebar-1"><a href="panel.xhtml"><i
-							class="icon-home"></i> Inicio</a></li>
-					<li id="sidebar-2"><a href="listCliente.xhtml"><i
-							class="icon-user"></i> Clientes</a></li>
-					<li id="sidebar-3"><a href="listPlan.xhtml"><i
-							class="icon-user"></i> Planes</a></li>
-					<li id="sidebar-3"><a href="listSala.xhtml"><i
-						class="icon-user"></i> Salas</a></li>
-					<li id="sidebar-3"><a href="listActividad.xhtml"><i
-						class="icon-user"></i> Actividades</a></li>
-					<li id="sidebar-3"><a href="listEntrenador.xhtml"><i
-						class="icon-user"></i> Entrenador</a></li>
-						<li id="sidebar-3"><a href="listEstadoSalud.xhtml"><i
-						class="icon-user"></i> Estado de Salud</a></li>
-					<li id="sidebar-3"><a href="listAdministrador.xhtml"><i
-						class="icon-user"></i> Administrador</a></li>	
-					
-					<li id="sidebar-3"><a href="listGimnasio.xhtml"><i
-						class="icon-user"></i> Gimnasio</a></li>
-
-					<li id="sidebar-6"><a href="listDistrito.xhtml"><i
-						class="icon-user"></i> Distritos</a></li>
-
-					<li id="sidebar-3"><a href="listPlan.xhtml"><i
-							class="icon-user"></i> Planes</a></li>
-					<li id="sidebar-4"><a href="listTPlan.xhtml"><i
-							class="icon-user"></i> Tipo de Planes</a></li>
-					<li id="sidebar-5"><a href="listAlimentacion.xhtml"><i
-							class="icon-user"></i> Plan de alimentacion</a></li>
-					<li id="sidebar-6"><a href="listRutina.xhtml"><i
-							class="icon-user"></i> Rutinas de ejercicio</a></li>
-
-					<li id="sidebar-3"><a href="listClientePlan.xhtml">
-							<i class="icon-user"></i> Cliente-Plan</a></li>
-
-					<li id="sidebar-6"><a href="listAlimentacionCliente.xhtml"><i
-							class="icon-user"></i> Asignacion de alimento por cliente </a></li>
-							
-					<li id="sidebar-6"><a href="listRutinaCliente.xhtml"><i
-						class="icon-user"></i> Asignacion de rutina por cliente </a></li>
-					</ul>
-				
-			</div>
+		
 			<!--/left-->
 
 			<!--right-->
@@ -104,8 +87,11 @@
 			<!--/right-->
 		</div>
 		<!--/row-->
-	</div>
+
 	<!--/container-->
 	<ui:insert name="footerCont"></ui:insert>
-</h:body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>

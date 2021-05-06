@@ -26,14 +26,14 @@
 			
 			<p:selectOneMenu id="cboCliente" value="#{clientePlanController.clienteplan.cliente}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{{clientePlanController.listaClientes}" var = "d" 
+				<f:selectItems value="#{clientePlanController.listaClientes}" var = "d" 
 					itemLabel="#{d.nombreCliente}" itemValue="#{d}"/>
 			</p:selectOneMenu> 		
 			
 			<p:outputLabel for="cboPlan" value="Plan" />
 			<p:selectOneMenu id="cboPlan" value="#{clientePlanController.clienteplan.plan}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{{clientePlanController.listaPlanes}" var = "p" 
+				<f:selectItems value="#{clientePlanController.listaPlanes}" var = "p" 
 					itemLabel="#{p.nombrePlan}" itemValue="#{p}"/>
 			</p:selectOneMenu> 	
 			
