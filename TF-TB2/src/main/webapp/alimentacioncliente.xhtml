@@ -41,7 +41,7 @@
 			<p:selectOneMenu id="cboAlimentacion" value="#{alimentacionClienteController.alimentacioncliente.alimentacion}" 
 			converter="omnifaces.SelectItemsConverter">
 			<f:selectItems value="#{alimentacionClienteController.listaAlimentaciones}" var = "c" 
-					itemLabel="#{c.nombreAlimentacion}" itemValue="#{d}"/>
+					itemLabel="#{c.nombreAlimentacion}" itemValue="#{c}"/>
 			</p:selectOneMenu>		
 			
 
