@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+//ddddd
+	<ui:define name="title">
+        .:Registro de programcion :.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Programacion</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idProgramacion" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idProgramacion"
+				styleClass="form-control" value="#{programacionController.programacion.idProgramacion}"
+				required="true" />
+				
+			<p:outputLabel for="cboActividad" value="Actividad" />
+			<p:selectOneMenu id="cboActividad" value="#{programacionController.programacion.actividad}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{programacionController.listaActividades}" var = "d" 
+					itemLabel="#{d.nombreActividad}" itemValue="#{d}"/>
+			</p:selectOneMenu> 					
+
+			<h:outputLabel for="fechaProgramacion" value="Fecha de Programacion "
+				styleClass="control-label" />
+			<p:calendar id="fechaProgramacion" pattern="dd/MM/yyyy"
+				value="#{programacionController.programacion.fechaProgramacion}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+
+			<h:outputLabel for="horainicial" value="Hora Inicial "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="horainicial"
+				styleClass="form-control"
+				value="#{programacionController.programacion.horainicial}" maxlength="20"
+				required="true" />	
+	
+			<h:outputLabel for="horafinal" value="Hora Final "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="horafinal"
+				styleClass="form-control"
+				value="#{programacionController.programacion.horafinal}" maxlength="20"
+				required="true" />	
+			
+
+				
+			<p:commandButton value="Grabar"
+				actionListener="#{programacionController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listProgramacion?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listProgramacion?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

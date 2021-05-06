@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Alimentacion por clientes:.
+		.:Listado de Programaciones por actividad:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Relacion de alimentos por clientes </span>
+		<span>Programaciones</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{alimentacionClienteController.nuevoAlimentacionCliente()}" 
+							action="#{programacionController.nuevoProgramacion()}" 
 							styleClass="btn btn-primary ajax=false" /><br/>
 					</div>
 				</div>
@@ -34,34 +34,41 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstlAlimentacionCliente" var="acli"
-							value="#{alimentacionClienteController.listaAlimentacionClientes}" paginator="true"
+						<p:dataTable id="lstProgramacion" var="pro"
+							value="#{programacionController.listaProgramaciones}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{acli.idAlimentacionCliente}">
-								<h:outputText value="#{acli.idAlimentacionCliente}" />
+							<p:column headerText="Id" sortBy="#{pro.idProgramacion}">
+								<h:outputText value="#{pro.idProgramacion}" />
 							</p:column>
 
-							<p:column headerText="Cliente" sortBy="#{acli.cliente.apellidoCliente}">
-								<h:outputText value="#{acli.cliente.apellidoCliente}" />
+							<p:column headerText="Actividad" sortBy="#{pro.actividad.nombreActividad}">
+								<h:outputText value="#{pro.actividad.nombreActividad}" />
 							</p:column>
 							
-							<p:column headerText="PLan de Alimentacion" sortBy="#{acli.alimentacion.nombreAlimentacion}">
-								<h:outputText value="#{acli.alimentacion.nombreAlimentacion}" />
+							<p:column headerText="Fecha de Actividad" sortBy="#{pro.fechaProgramacion}">
+								<h:outputText value="#{pro.fechaProgramacion}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
 							</p:column>
 							
-							<p:column headerText="Duracion de alimentacion" sortBy="#{acli.duracionporcliente}">
-								<h:outputText value="#{acli.duracionporcliente}" />
-							</p:column>		
+							<p:column headerText="Hora  Inicial " sortBy="#{pro.horainicial}">
+								<h:outputText value="#{pro.horainicial}" />
+							</p:column>						
+												
+							<p:column headerText="Hora  Final" sortBy="#{pro.horafinal}">
+								<h:outputText value="#{pro.horafinal}" />
+							</p:column>	
 							
+					
 
 							
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listAlimentacionCliente" value="Eliminar"
-									actionListener="#{alimentacionClienteController.eliminar(acli)}" />
+								<h:commandLink action="listProgramacion" value="Eliminar"
+									actionListener="#{programacionController.eliminar(pro)}" />
 							</p:column>
 
 						</p:dataTable>

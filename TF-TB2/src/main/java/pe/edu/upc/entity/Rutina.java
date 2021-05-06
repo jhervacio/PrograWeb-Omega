@@ -91,5 +91,57 @@ public class Rutina implements Serializable {
 	public void setDescripcionRutina(String descripcionRutina) {
 		this.descripcionRutina = descripcionRutina;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
+		result = prime * result + ((descripcionRutina == null) ? 0 : descripcionRutina.hashCode());
+		result = prime * result + ((duracionRutina == null) ? 0 : duracionRutina.hashCode());
+		result = prime * result + ((frecuenciaRutina == null) ? 0 : frecuenciaRutina.hashCode());
+		result = prime * result + idRutina;
+		result = prime * result + ((nombreRutina == null) ? 0 : nombreRutina.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rutina other = (Rutina) obj;
+		if (cliente == null) {
+			if (other.cliente != null)
+				return false;
+		} else if (!cliente.equals(other.cliente))
+			return false;
+		if (descripcionRutina == null) {
+			if (other.descripcionRutina != null)
+				return false;
+		} else if (!descripcionRutina.equals(other.descripcionRutina))
+			return false;
+		if (duracionRutina == null) {
+			if (other.duracionRutina != null)
+				return false;
+		} else if (!duracionRutina.equals(other.duracionRutina))
+			return false;
+		if (frecuenciaRutina == null) {
+			if (other.frecuenciaRutina != null)
+				return false;
+		} else if (!frecuenciaRutina.equals(other.frecuenciaRutina))
+			return false;
+		if (idRutina != other.idRutina)
+			return false;
+		if (nombreRutina == null) {
+			if (other.nombreRutina != null)
+				return false;
+		} else if (!nombreRutina.equals(other.nombreRutina))
+			return false;
+		return true;
+	}
 	
 }

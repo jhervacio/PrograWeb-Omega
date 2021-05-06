@@ -38,6 +38,48 @@ public class Actividad implements Serializable {
 	}
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((descripcionActividad == null) ? 0 : descripcionActividad.hashCode());
+		result = prime * result + idActividad;
+		result = prime * result + ((nombreActividad == null) ? 0 : nombreActividad.hashCode());
+		result = prime * result + ((sala == null) ? 0 : sala.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Actividad other = (Actividad) obj;
+		if (descripcionActividad == null) {
+			if (other.descripcionActividad != null)
+				return false;
+		} else if (!descripcionActividad.equals(other.descripcionActividad))
+			return false;
+		if (idActividad != other.idActividad)
+			return false;
+		if (nombreActividad == null) {
+			if (other.nombreActividad != null)
+				return false;
+		} else if (!nombreActividad.equals(other.nombreActividad))
+			return false;
+		if (sala == null) {
+			if (other.sala != null)
+				return false;
+		} else if (!sala.equals(other.sala))
+			return false;
+		return true;
+	}
+
+
 	public Actividad(int idActividad, Sala sala, String nombreActividad, String descripcionActividad) {
 		super();
 		this.idActividad = idActividad;
