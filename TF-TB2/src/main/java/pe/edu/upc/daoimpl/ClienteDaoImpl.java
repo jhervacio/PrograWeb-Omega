@@ -56,6 +56,15 @@ private static final long serialVersionUID = 1L;
 		}
 		
 	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Cliente> findByNameCliente(Cliente c) {
+		List<Cliente> lista = new ArrayList<Cliente>();
+		Query q = em.createQuery("from Cliente c where c.nombreCliente like ?1");
+		q.setParameter(1, "%" + c.getNombreCliente() + "%");
+		lista = (List<Cliente>)q.getResultList();
+		return lista;
+	}
 	
 
 }

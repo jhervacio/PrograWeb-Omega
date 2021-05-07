@@ -68,6 +68,14 @@ private static final long serialVersionUID = 1L;
 			System.out.println(ex.getMessage());
 		}
 	}
+	public void findByName() {
+		if (cliente.getNombreCliente().isEmpty()) {
+			this.listar();
+		}
+		else {
+			listaClientes = this.mService.findByNameCliente(this.getCliente());
+		}
+	}
 
 	public Cliente getCliente() {
 		return cliente;

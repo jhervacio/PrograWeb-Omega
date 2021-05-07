@@ -19,7 +19,7 @@
 		<h:form>
 			<h:outputLabel for="idCliente" value="Id " styleClass="control-label" />
 
-		12	<p:inputText autocomplete="off" id="idCliente"
+			<p:inputText autocomplete="off" id="idCliente"
 				styleClass="form-control" value="#{clienteController.cliente.idCliente}"
 				required="true" />
 				
@@ -66,6 +66,7 @@
 				value="#{clienteController.cliente.fechaInscripcion}" showOn="button"
 				timeZone="UTC" required="true">
 			</p:calendar>
+					<br/>
 				
 				<h:outputLabel for="planCliente" value="Plan del cliente"
 				styleClass="control-label" />

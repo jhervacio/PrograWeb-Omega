@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.IClienteDao;
 import pe.edu.upc.entity.Cliente;
+
 import pe.edu.upc.service.IClienteService;
 
 @Named
@@ -34,7 +35,11 @@ public class ClienteServiceImpl implements IClienteService, Serializable {
 	public void eliminar(int idCliente) {
 		mD.eliminar(idCliente);
 	}
+	
+	@Override
+	public List<Cliente> findByNameCliente(Cliente c) {
+		return mD.findByNameCliente(c);
 
-
+	}
 
 }

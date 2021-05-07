@@ -8,5 +8,6 @@ public interface IClienteService {
 	public void insertar(Cliente cliente);
 	public List<Cliente> listar();
 	public void eliminar(int idCliente);
+	public List<Cliente> findByNameCliente(Cliente c);
 
 }
