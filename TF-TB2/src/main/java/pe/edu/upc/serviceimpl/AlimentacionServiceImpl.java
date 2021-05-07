@@ -13,6 +13,7 @@ import pe.edu.upc.service.IAlimentacionService;
 
 @Named
 @RequestScoped
+/* Implementacion de servicio alimentación*/
 public class AlimentacionServiceImpl implements IAlimentacionService, Serializable {
 
 	private static final long serialVersionUID = 1L;
